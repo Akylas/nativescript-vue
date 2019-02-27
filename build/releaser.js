@@ -62,9 +62,9 @@ inquirer
       echo "Starting build..."
       VERSION=${version} npm run build
       echo "Build Successful. Updating packages"
-      cd packages/nativescript-vue-template-compiler && npm version ${version} && npm publish${releaseTag ? ' --tag ' + releaseTag : ''}
+      cd packages/akylas-nativescript-vue-template-compiler && npm version ${version} && npm publish${releaseTag ? ' --tag ' + releaseTag : ''}
       git add -A
-      git add -f dist/index.js dist/index.js.map packages/nativescript-vue-template-compiler/index.js
+      git add -f dist/index.js dist/index.js.map packages/akylas-nativescript-vue-template-compiler/index.js
       git commit --no-verify -m "${buildMessage}"
       npm version ${version} --commit-hooks false -m "${releaseMessage}"
       npm run release:notes

@@ -1,6 +1,6 @@
 
 /*!
- * Akylas-NativeScript-Vue-Template-Compiler v2.0.5
+ * Akylas-NativeScript-Vue-Template-Compiler v2.0.6
  * (Using Vue v2.6.7)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
@@ -11205,7 +11205,7 @@ function isUnknownElement(el) {
 }
 
 var VUE_VERSION = '2.6.7';
-var NS_VUE_VERSION = '2.0.5';
+var NS_VUE_VERSION = '2.0.6';
 
 var infoTrace = once(function () {
   console.log(
