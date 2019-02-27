@@ -1,12 +1,16 @@
 // import vue.js typings
 // import Vue from 'vue';
 import { Vue, VueConstructor } from 'vue/types/vue'
-import { Page, NavigationEntry, Size } from 'tns-core-modules/ui/frame/frame'
+import { Page, NavigationEntry } from 'tns-core-modules/ui/frame/frame'
 import { View } from 'tns-core-modules/ui/core/view'
+
+export interface NavigationEntryVue extends NavigationEntry {
+    props?: Record<string, any>
+}
 
 export type navigateTo = (
     component: VueConstructor,
-    options?: NavigationEntry,
+    options?: NavigationEntryVue,
     cb?: () => Page,
 ) => Promise<Page>;
 
@@ -41,6 +45,7 @@ export interface NativeScriptVue<V = View> extends Vue {
 export interface NativeScriptVueConstructor extends VueConstructor<NativeScriptVue> {
     navigateTo: navigateTo
     navigateBack: () => void
+    registerElement: (elementName: string, resolver: Function, meta?: any) => void
 }
 
 export const NativeScriptVue: NativeScriptVueConstructor
