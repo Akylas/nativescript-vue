@@ -38,7 +38,7 @@ const builds = {
         moduleName: 'NativeScript-Vue',
         banner: banner('NativeScript-Vue'),
         external(id) {
-            return id.startsWith('tns-core-modules') || id.startsWith('weex')
+            return /tns-core-modules/.test(id) || /weex/.test(id)
         }
     },
     'nativescript-vue-template-compiler': {
@@ -46,13 +46,17 @@ const builds = {
         dest: './packages/nativescript-vue-template-compiler/index.js',
         moduleName: 'NativeScript-Vue-Template-Compiler',
         banner: banner('NativeScript-Vue-Template-Compiler'),
-        external: Object.keys(require('../packages/nativescript-vue-template-compiler/package.json').dependencies)
+        external(id) {
+            return /tns-core-modules/.test(id) || /weex/.test(id)
+        }
+        // external: Object.keys(require('../packages/nativescript-vue-template-compiler/package.json').dependencies)
     }
 }
 
 
 const genConfig = (name) => {
     const opts = builds[name]
+    console.log('genConfig', name);
     const config = {
         input: opts.entry,
         external: opts.external,
