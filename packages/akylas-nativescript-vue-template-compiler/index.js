@@ -1,6 +1,6 @@
 
 /*!
- * Akylas-NativeScript-Vue-Template-Compiler v2.0.12
+ * Akylas-NativeScript-Vue-Template-Compiler v2.0.13
  * (Using Vue v2.6.7)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
@@ -422,7 +422,7 @@ function parseHTML (html, options) {
 
     if (html === last) {
       options.chars && options.chars(html);
-      if (global.process.env.NODE_ENV !== 'production' && !stack.length && options.warn) {
+      if (process.env.NODE_ENV !== 'production' && !stack.length && options.warn) {
         options.warn(("Mal-formatted tag at end of template: \"" + html + "\""), { start: index + html.length });
       }
       break
@@ -489,7 +489,7 @@ function parseHTML (html, options) {
         name: args[1],
         value: decodeAttr(value, shouldDecodeNewlines)
       };
-      if (global.process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
+      if (process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
         attrs[i].start = args.start + args[0].match(/^\s*/).length;
         attrs[i].end = args.end;
       }
@@ -526,7 +526,7 @@ function parseHTML (html, options) {
     if (pos >= 0) {
       // Close all the open elements, up the stack
       for (var i = stack.length - 1; i >= pos; i--) {
-        if (global.process.env.NODE_ENV !== 'production' &&
+        if (process.env.NODE_ENV !== 'production' &&
           (i > pos || !tagName) &&
           options.warn
         ) {
@@ -1122,7 +1122,7 @@ function addHandler (
   // warn prevent and passive modifier
   /* istanbul ignore if */
   if (
-    global.process.env.NODE_ENV !== 'production' && warn &&
+    process.env.NODE_ENV !== 'production' && warn &&
     modifiers.prevent && modifiers.passive
   ) {
     warn(
@@ -1275,7 +1275,7 @@ function rangeSetItem (
 /*  */
 
 var onRE = /^@|^v-on:/;
-var dirRE = global.process.env.VBIND_PROP_SHORTHAND
+var dirRE = process.env.VBIND_PROP_SHORTHAND
   ? /^v-|^@|^:|^\./
   : /^v-|^@|^:/;
 var forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/;
@@ -1372,14 +1372,14 @@ function parse (
     if (!stack.length && element !== root) {
       // allow root elements with v-if, v-else-if and v-else
       if (root.if && (element.elseif || element.else)) {
-        if (global.process.env.NODE_ENV !== 'production') {
+        if (process.env.NODE_ENV !== 'production') {
           checkRootConstraints(element);
         }
         addIfCondition(root, {
           exp: element.elseif,
           block: element
         });
-      } else if (global.process.env.NODE_ENV !== 'production') {
+      } else if (process.env.NODE_ENV !== 'production') {
         warnOnce(
           "Component template should contain exactly one root element. " +
           "If you are using v-if on multiple elements, " +
@@ -1479,7 +1479,7 @@ function parse (
         element.ns = ns;
       }
 
-      if (global.process.env.NODE_ENV !== 'production') {
+      if (process.env.NODE_ENV !== 'production') {
         if (options.outputSourceRange) {
           element.start = start$1;
           element.rawAttrsMap = element.attrsList.reduce(function (cumulated, attr) {
@@ -1503,7 +1503,7 @@ function parse (
 
       if (isForbiddenTag(element) && !isServerRendering()) {
         element.forbidden = true;
-        global.process.env.NODE_ENV !== 'production' && warn(
+        process.env.NODE_ENV !== 'production' && warn(
           'Templates should only be responsible for mapping the state to the ' +
           'UI. Avoid placing tags with side-effects in your templates, such as ' +
           "<" + tag + ">" + ', as they will not be parsed.',
@@ -1536,7 +1536,7 @@ function parse (
 
       if (!root) {
         root = element;
-        if (global.process.env.NODE_ENV !== 'production') {
+        if (process.env.NODE_ENV !== 'production') {
           checkRootConstraints(root);
         }
       }
@@ -1554,7 +1554,7 @@ function parse (
       // pop stack
       stack.length -= 1;
       currentParent = stack[stack.length - 1];
-      if (global.process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
+      if (process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
         element.end = end$1;
       }
       closeElement(element);
@@ -1562,7 +1562,7 @@ function parse (
 
     chars: function chars (text, start, end) {
       if (!currentParent) {
-        if (global.process.env.NODE_ENV !== 'production') {
+        if (process.env.NODE_ENV !== 'production') {
           if (text === template) {
             warnOnce(
               'Component template requires a root element, rather than just text.',
@@ -1623,7 +1623,7 @@ function parse (
           };
         }
         if (child) {
-          if (global.process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
+          if (process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
             child.start = start;
             child.end = end;
           }
@@ -1640,7 +1640,7 @@ function parse (
           text: text,
           isComment: true
         };
-        if (global.process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
+        if (process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
           child.start = start;
           child.end = end;
         }
@@ -1706,7 +1706,7 @@ function processElement (
 function processKey (el) {
   var exp = getBindingAttr(el, 'key');
   if (exp) {
-    if (global.process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production') {
       if (el.tag === 'template') {
         warn(
           "<template> cannot be keyed. Place the key on real elements instead.",
@@ -1744,7 +1744,7 @@ function processFor (el) {
     var res = parseFor(exp);
     if (res) {
       extend(el, res);
-    } else if (global.process.env.NODE_ENV !== 'production') {
+    } else if (process.env.NODE_ENV !== 'production') {
       warn(
         ("Invalid v-for expression: " + exp),
         el.rawAttrsMap['v-for']
@@ -1800,7 +1800,7 @@ function processIfConditions (el, parent) {
       exp: el.elseif,
       block: el
     });
-  } else if (global.process.env.NODE_ENV !== 'production') {
+  } else if (process.env.NODE_ENV !== 'production') {
     warn(
       "v-" + (el.elseif ? ('else-if="' + el.elseif + '"') : 'else') + " " +
       "used on element <" + (el.tag) + "> without corresponding v-if.",
@@ -1815,7 +1815,7 @@ function findPrevElement (children) {
     if (children[i].type === 1) {
       return children[i]
     } else {
-      if (global.process.env.NODE_ENV !== 'production' && children[i].text !== ' ') {
+      if (process.env.NODE_ENV !== 'production' && children[i].text !== ' ') {
         warn(
           "text \"" + (children[i].text.trim()) + "\" between v-if and v-else(-if) " +
           "will be ignored.",
@@ -1848,7 +1848,7 @@ function processSlotContent (el) {
   if (el.tag === 'template') {
     slotScope = getAndRemoveAttr(el, 'scope');
     /* istanbul ignore if */
-    if (global.process.env.NODE_ENV !== 'production' && slotScope) {
+    if (process.env.NODE_ENV !== 'production' && slotScope) {
       warn(
         "the \"scope\" attribute for scoped slots have been deprecated and " +
         "replaced by \"slot-scope\" since 2.5. The new \"slot-scope\" attribute " +
@@ -1861,7 +1861,7 @@ function processSlotContent (el) {
     el.slotScope = slotScope || getAndRemoveAttr(el, 'slot-scope');
   } else if ((slotScope = getAndRemoveAttr(el, 'slot-scope'))) {
     /* istanbul ignore if */
-    if (global.process.env.NODE_ENV !== 'production' && el.attrsMap['v-for']) {
+    if (process.env.NODE_ENV !== 'production' && el.attrsMap['v-for']) {
       warn(
         "Ambiguous combined usage of slot-scope and v-for on <" + (el.tag) + "> " +
         "(v-for takes higher priority). Use a wrapper <template> for the " +
@@ -1886,12 +1886,12 @@ function processSlotContent (el) {
   }
 
   // 2.6 v-slot syntax
-  if (global.process.env.NEW_SLOT_SYNTAX) {
+  if (process.env.NEW_SLOT_SYNTAX) {
     if (el.tag === 'template') {
       // v-slot on <template>
       var slotBinding = getAndRemoveAttrByRegex(el, slotRE);
       if (slotBinding) {
-        if (global.process.env.NODE_ENV !== 'production') {
+        if (process.env.NODE_ENV !== 'production') {
           if (el.slotTarget || el.slotScope) {
             warn(
               "Unexpected mixed usage of different slot syntaxes.",
@@ -1917,7 +1917,7 @@ function processSlotContent (el) {
       // v-slot on component, denotes default slot
       var slotBinding$1 = getAndRemoveAttrByRegex(el, slotRE);
       if (slotBinding$1) {
-        if (global.process.env.NODE_ENV !== 'production') {
+        if (process.env.NODE_ENV !== 'production') {
           if (!maybeComponent(el)) {
             warn(
               "v-slot can only be used on components or <template>.",
@@ -1967,7 +1967,7 @@ function getSlotName (binding) {
   if (!name) {
     if (binding.name[0] !== '#') {
       name = 'default';
-    } else if (global.process.env.NODE_ENV !== 'production') {
+    } else if (process.env.NODE_ENV !== 'production') {
       warn(
         "v-slot shorthand syntax requires a slot name.",
         binding
@@ -1985,7 +1985,7 @@ function getSlotName (binding) {
 function processSlotOutlet (el) {
   if (el.tag === 'slot') {
     el.slotName = getBindingAttr(el, 'name');
-    if (global.process.env.NODE_ENV !== 'production' && el.key) {
+    if (process.env.NODE_ENV !== 'production' && el.key) {
       warn(
         "`key` does not work on <slot> because slots are abstract outlets " +
         "and can possibly expand into multiple elements. " +
@@ -2018,7 +2018,7 @@ function processAttrs (el) {
       // modifiers
       modifiers = parseModifiers(name.replace(dirRE, ''));
       // support .foo shorthand syntax for the .prop modifier
-      if (global.process.env.VBIND_PROP_SHORTHAND && propBindRE.test(name)) {
+      if (process.env.VBIND_PROP_SHORTHAND && propBindRE.test(name)) {
         (modifiers || (modifiers = {})).prop = true;
         name = "." + name.slice(1).replace(modifierRE, '');
       } else if (modifiers) {
@@ -2032,7 +2032,7 @@ function processAttrs (el) {
           name = name.slice(1, -1);
         }
         if (
-          global.process.env.NODE_ENV !== 'production' &&
+          process.env.NODE_ENV !== 'production' &&
           value.trim().length === 0
         ) {
           warn(
@@ -2113,13 +2113,13 @@ function processAttrs (el) {
           }
         }
         addDirective(el, name, rawName, value, arg, isDynamic, modifiers, list[i]);
-        if (global.process.env.NODE_ENV !== 'production' && name === 'model') {
+        if (process.env.NODE_ENV !== 'production' && name === 'model') {
           checkForAliasModel(el, value);
         }
       }
     } else {
       // literal attribute
-      if (global.process.env.NODE_ENV !== 'production') {
+      if (process.env.NODE_ENV !== 'production') {
         var res = parseText(value, delimiters);
         if (res) {
           warn(
@@ -2167,7 +2167,7 @@ function makeAttrsMap (attrs) {
   var map = {};
   for (var i = 0, l = attrs.length; i < l; i++) {
     if (
-      global.process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'production' &&
       map[attrs[i].name] && !isIE && !isEdge
     ) {
       warn('duplicate attribute: ' + attrs[i].name, attrs[i]);
@@ -2555,12 +2555,12 @@ var config = ({
   /**
    * Show production mode tip message on boot?
    */
-  productionTip: global.process.env.NODE_ENV !== 'production',
+  productionTip: process.env.NODE_ENV !== 'production',
 
   /**
    * Whether to enable devtools
    */
-  devtools: global.process.env.NODE_ENV !== 'production',
+  devtools: process.env.NODE_ENV !== 'production',
 
   /**
    * Whether to record perf
@@ -2641,7 +2641,7 @@ var tip = noop;
 var generateComponentTrace = (noop); // work around flow check
 var formatComponentName = (noop);
 
-if (global.process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   var hasConsole = typeof console !== 'undefined';
   var classifyRE = /(?:^|[-_])(\w)/g;
   var classify = function (str) { return str
@@ -2756,7 +2756,7 @@ Dep.prototype.depend = function depend () {
 Dep.prototype.notify = function notify () {
   // stabilize the subscriber list first
   var subs = this.subs.slice();
-  if (global.process.env.NODE_ENV !== 'production' && !config.async) {
+  if (process.env.NODE_ENV !== 'production' && !config.async) {
     // subs aren't sorted in scheduler if not running async
     // we need to sort them now to make sure they fire in correct
     // order
@@ -3019,7 +3019,7 @@ function defineReactive (
         return
       }
       /* eslint-enable no-self-compare */
-      if (global.process.env.NODE_ENV !== 'production' && customSetter) {
+      if (process.env.NODE_ENV !== 'production' && customSetter) {
         customSetter();
       }
       // #7981: for accessor properties without setter
@@ -3041,7 +3041,7 @@ function defineReactive (
  * already exist.
  */
 function set (target, key, val) {
-  if (global.process.env.NODE_ENV !== 'production' &&
+  if (process.env.NODE_ENV !== 'production' &&
     (isUndef(target) || isPrimitive(target))
   ) {
     warn$1(("Cannot set reactive property on undefined, null, or primitive value: " + ((target))));
@@ -3057,7 +3057,7 @@ function set (target, key, val) {
   }
   var ob = (target).__ob__;
   if (target._isVue || (ob && ob.vmCount)) {
-    global.process.env.NODE_ENV !== 'production' && warn$1(
+    process.env.NODE_ENV !== 'production' && warn$1(
       'Avoid adding reactive properties to a Vue instance or its root $data ' +
       'at runtime - declare it upfront in the data option.'
     );
@@ -3098,7 +3098,7 @@ var strats = config.optionMergeStrategies;
 /**
  * Options with restrictions
  */
-if (global.process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   strats.el = strats.propsData = function (parent, child, vm, key) {
     if (!vm) {
       warn$1(
@@ -3192,7 +3192,7 @@ strats.data = function (
 ) {
   if (!vm) {
     if (childVal && typeof childVal !== 'function') {
-      global.process.env.NODE_ENV !== 'production' && warn$1(
+      process.env.NODE_ENV !== 'production' && warn$1(
         'The "data" option should be a function ' +
         'that returns a per-instance value in component ' +
         'definitions.',
@@ -3255,7 +3255,7 @@ function mergeAssets (
 ) {
   var res = Object.create(parentVal || null);
   if (childVal) {
-    global.process.env.NODE_ENV !== 'production' && assertObjectType(key, childVal, vm);
+    process.env.NODE_ENV !== 'production' && assertObjectType(key, childVal, vm);
     return extend(res, childVal)
   } else {
     return res
@@ -3283,7 +3283,7 @@ strats.watch = function (
   if (childVal === nativeWatch) { childVal = undefined; }
   /* istanbul ignore if */
   if (!childVal) { return Object.create(parentVal || null) }
-  if (global.process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     assertObjectType(key, childVal, vm);
   }
   if (!parentVal) { return childVal }
@@ -3314,7 +3314,7 @@ strats.computed = function (
   vm,
   key
 ) {
-  if (childVal && global.process.env.NODE_ENV !== 'production') {
+  if (childVal && process.env.NODE_ENV !== 'production') {
     assertObjectType(key, childVal, vm);
   }
   if (!parentVal) { return childVal }
@@ -3388,7 +3388,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) ; else if (!isIE && typ
 /*  */
 
 function on (el, dir) {
-  if (global.process.env.NODE_ENV !== 'production' && dir.modifiers) {
+  if (process.env.NODE_ENV !== 'production' && dir.modifiers) {
     warn$1("v-on without argument does not support modifiers.");
   }
   el.wrapListeners = function (code) { return ("_g(" + code + "," + (dir.value) + ")"); };
@@ -3513,7 +3513,7 @@ function genOnce (el, state) {
       parent = parent.parent;
     }
     if (!key) {
-      global.process.env.NODE_ENV !== 'production' && state.warn(
+      process.env.NODE_ENV !== 'production' && state.warn(
         "v-once can only be used inside v-for that is keyed. ",
         el.rawAttrsMap['v-once']
       );
@@ -3573,7 +3573,7 @@ function genFor (
   var iterator1 = el.iterator1 ? ("," + (el.iterator1)) : '';
   var iterator2 = el.iterator2 ? ("," + (el.iterator2)) : '';
 
-  if (global.process.env.NODE_ENV !== 'production' &&
+  if (process.env.NODE_ENV !== 'production' &&
     state.maybeComponent(el) &&
     el.tag !== 'slot' &&
     el.tag !== 'template' &&
@@ -3706,7 +3706,7 @@ function genDirectives (el, state) {
 
 function genInlineTemplate (el, state) {
   var ast = el.children[0];
-  if (global.process.env.NODE_ENV !== 'production' && (
+  if (process.env.NODE_ENV !== 'production' && (
     el.children.length !== 1 || ast.type !== 1
   )) {
     state.warn(
@@ -4152,7 +4152,7 @@ function createCompileToFunctionFn (compile) {
     delete options.warn;
 
     /* istanbul ignore if */
-    if (global.process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production') {
       // detect possible CSP restriction
       try {
         new Function('return 1');
@@ -4181,7 +4181,7 @@ function createCompileToFunctionFn (compile) {
     var compiled = compile(template, options);
 
     // check compilation errors/tips
-    if (global.process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production') {
       if (compiled.errors && compiled.errors.length) {
         if (options.outputSourceRange) {
           compiled.errors.forEach(function (e) {
@@ -4220,7 +4220,7 @@ function createCompileToFunctionFn (compile) {
     // this should only happen if there is a bug in the compiler itself.
     // mostly for codegen development use
     /* istanbul ignore if */
-    if (global.process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production') {
       if ((!compiled.errors || !compiled.errors.length) && fnGenErrors.length) {
         warn(
           "Failed to generate render function:\n\n" +
@@ -4256,7 +4256,7 @@ function createCompilerCreator (baseCompile) {
       };
 
       if (options) {
-        if (global.process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
+        if (process.env.NODE_ENV !== 'production' && options.outputSourceRange) {
           // $flow-disable-line
           var leadingSpaceLength = template.match(/^\s*/)[0].length;
 
@@ -4296,7 +4296,7 @@ function createCompilerCreator (baseCompile) {
       finalOptions.warn = warn;
 
       var compiled = baseCompile(template.trim(), finalOptions);
-      if (global.process.env.NODE_ENV !== 'production') {
+      if (process.env.NODE_ENV !== 'production') {
         detectErrors(compiled.ast, warn);
       }
       compiled.errors = errors;
@@ -4404,7 +4404,7 @@ function isKnownView(elementName) {
 function transformNode(el, options) {
   var warn = options.warn || baseWarn;
   var staticClass = getAndRemoveAttr(el, 'class');
-  if (global.process.env.NODE_ENV !== 'production' && staticClass) {
+  if (process.env.NODE_ENV !== 'production' && staticClass) {
     var expression = parseText(staticClass, options.delimiters);
     if (expression) {
       warn(
@@ -4449,7 +4449,7 @@ function transformNode$1(el, options) {
   var ref = parseStaticStyle(staticStyle, options);
   var dynamic = ref.dynamic;
   var styleResult = ref.styleResult;
-  if (global.process.env.NODE_ENV !== 'production' && dynamic) {
+  if (process.env.NODE_ENV !== 'production' && dynamic) {
     warn(
       "style=\"" + (String(staticStyle)) + "\": " +
         'Interpolation inside attributes has been deprecated. ' +
@@ -4521,7 +4521,7 @@ function preTransformNode(el) {
   if (normalizeElementName(el.tag) === 'nativelistview') {
     vfor = getAndRemoveAttr(el, 'v-for');
     delete el.attrsMap['v-for'];
-    if (global.process.env.NODE_ENV !== 'production' && vfor) {
+    if (process.env.NODE_ENV !== 'production' && vfor) {
       warn$1(
         "The v-for directive is not supported on a " + (el.tag) + ", " +
           'Use the "for" attribute instead. For example, instead of ' +
@@ -4535,7 +4535,7 @@ function preTransformNode(el) {
 
   var res = parseFor(exp);
   if (!res) {
-    if (global.process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production') {
       warn$1(("Invalid for expression: " + exp));
     }
     return
@@ -4654,8 +4654,8 @@ function getTagNamespace(el) {
   return getViewMeta(el).tagNamespace
 }
 
-var VUE_VERSION = global.process.env.VUE_VERSION || '2.6.7';
-var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.0.12';
+var VUE_VERSION = process.env.VUE_VERSION || '2.6.7';
+var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.0.13';
 
 var baseOptions = {
   modules: modules,

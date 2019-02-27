@@ -77,13 +77,13 @@ const genConfig = name => {
       replace({
         __WEEX__: false,
         __VERSION__: VueVersion,
-        'process.env.NODE_ENV': "global.process.env.NODE_ENV",
-        'process.env.VBIND_PROP_SHORTHAND': "global.process.env.VBIND_PROP_SHORTHAND",
-        'process.env.NEW_SLOT_SYNTAX': "global.process.env.NEW_SLOT_SYNTAX",
+        'process.env.NODE_ENV': "process.env.NODE_ENV",
+        'process.env.VBIND_PROP_SHORTHAND': "process.env.VBIND_PROP_SHORTHAND",
+        'process.env.NEW_SLOT_SYNTAX': "process.env.NEW_SLOT_SYNTAX",
         // 'process.env.NODE_ENV': "'production'",
         // 'process.env.VBIND_PROP_SHORTHAND': "false",
         'let _isServer': 'let _isServer = false',
-        'process.env.VUE_VERSION': `global.process.env.VUE_VERSION || '${VueVersion}'`,
+        'process.env.VUE_VERSION': `process.env.VUE_VERSION || '${VueVersion}'`,
         'process.env.NS_VUE_VERSION': `process.env.NS_VUE_VERSION || '${NSVueVersion}'`
       }),
       flow(),

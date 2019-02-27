@@ -1,7 +1,7 @@
 // This is required because some of the third party plugins rely on this
 // and cause errors since there is no process variable in {N}.
-global.process = global.process || {}
-global.process.env = global.process.env || {}
+global.process = process = process || {}
+process.env = process.env || {}
 
 import { topmost } from 'tns-core-modules/ui/frame'
 import application from 'tns-core-modules/application'
