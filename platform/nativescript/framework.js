@@ -19,27 +19,6 @@ setVue(Vue)
 Vue.use(ModalPlugin)
 Vue.use(NavigatorPlugin)
 
-const newLineRegExp = /\\n/g
-
-console.log = (function(log, inspect, Vue) {
-  return function(...args) {
-    return log.call(
-      this,
-      ...Array.prototype.map.call(args, function(arg) {
-        return inspect(arg, {
-          depth: 2,
-          colors: Vue.config.debug,
-          showHidden: true
-        }).replace(newLineRegExp, '\n')
-      })
-    )
-  }
-})(console.log, inspect, Vue)
-
-console.keys = function(object) {
-  console.log(Object.keys(object))
-}
-
 // this fixes the issue of resuming the application
 // however this might not be the desired functionality
 // Todo: figure out if there is a better way to fix application resume.

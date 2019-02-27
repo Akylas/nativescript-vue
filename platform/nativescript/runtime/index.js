@@ -3,7 +3,7 @@ import { warn } from 'core/util/index'
 import { patch } from './patch'
 import { mountComponent } from 'core/instance/lifecycle'
 import { compileToFunctions } from '../compiler/index'
-import { registerElement, getElementMap } from '../element-register'
+import { getElementMap } from '../element-register'
 import { registerElement } from '../element-registry'
 import { makeMap } from 'shared/util'
 

@@ -36,15 +36,15 @@ const compilerExternals = Object.keys(
     .dependencies
 )
 const builds = {
-  // 'akylas-nativescript-vue': {
-  //   entry: './platform/nativescript/framework.js',
-  //   dest: './dist/index.js',
-  //   moduleName: 'Akylas-NativeScript-Vue',
-  //   banner: banner('Akylas-NativeScript-Vue'),
-  //   external(id) {
-  //     return /tns-core-modules/.test(id) || /weex/.test(id)
-  //   }
-  // },
+  'akylas-nativescript-vue': {
+    entry: './platform/nativescript/framework.js',
+    dest: './dist/index.js',
+    moduleName: 'Akylas-NativeScript-Vue',
+    banner: banner('Akylas-NativeScript-Vue'),
+    external(id) {
+      return /tns-core-modules/.test(id) || /weex/.test(id)
+    }
+  },
   'akylas-nativescript-vue-template-compiler': {
     entry: './platform/nativescript/compiler.js',
     dest: './packages/akylas-nativescript-vue-template-compiler/index.js',
@@ -78,6 +78,7 @@ const genConfig = name => {
         __WEEX__: false,
         __VERSION__: VueVersion,
         'process.env.NODE_ENV': "'development'",
+        'process.env.VBIND_PROP_SHORTHAND': "false",
         'let _isServer': 'let _isServer = false',
         'process.env.VUE_VERSION': `'${VueVersion}'`,
         'process.env.NS_VUE_VERSION': `'${NSVueVersion}'`

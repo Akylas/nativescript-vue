@@ -1,6 +1,6 @@
 
 /*!
- * Akylas-NativeScript-Vue-Template-Compiler v2.0.7
+ * Akylas-NativeScript-Vue-Template-Compiler v2.0.8
  * (Using Vue v2.6.7)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
@@ -1274,9 +1274,7 @@ function rangeSetItem (
 /*  */
 
 var onRE = /^@|^v-on:/;
-var dirRE = process.env.VBIND_PROP_SHORTHAND
-  ? /^v-|^@|^:|^\./
-  : /^v-|^@|^:/;
+var dirRE = /^v-|^@|^:/;
 var forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/;
 var forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
 var stripParensRE = /^\(|\)$/g;
@@ -1284,7 +1282,6 @@ var dynamicArgRE = /^\[.*\]$/;
 
 var argRE = /:(.*)$/;
 var bindRE = /^:|^\.|^v-bind:/;
-var propBindRE = /^\./;
 var modifierRE = /\.[^.]+/g;
 
 var slotRE = /^v-slot(:|$)|^#/;
@@ -2017,10 +2014,7 @@ function processAttrs (el) {
       // modifiers
       modifiers = parseModifiers(name.replace(dirRE, ''));
       // support .foo shorthand syntax for the .prop modifier
-      if (process.env.VBIND_PROP_SHORTHAND && propBindRE.test(name)) {
-        (modifiers || (modifiers = {})).prop = true;
-        name = "." + name.slice(1).replace(modifierRE, '');
-      } else if (modifiers) {
+      if (modifiers) {
         name = name.replace(modifierRE, '');
       }
       if (bindRE.test(name)) { // v-bind
