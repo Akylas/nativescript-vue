@@ -1,6 +1,6 @@
 
 /*!
- * Akylas-NativeScript-Vue-Template-Compiler v2.0.8
+ * Akylas-NativeScript-Vue-Template-Compiler v2.0.9
  * (Using Vue v2.6.7)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
@@ -4382,215 +4382,6 @@ function isKnownView(elementName) {
   return elementMap[normalizeElementName(elementName)]
 }
 
-registerElement(
-  'AbsoluteLayout',
-  function () { return require('tns-core-modules/ui/layouts/absolute-layout').AbsoluteLayout; }
-);
-registerElement(
-  'ActivityIndicator',
-  function () { return require('tns-core-modules/ui/activity-indicator').ActivityIndicator; }
-);
-registerElement('Border', function () { return require('tns-core-modules/ui/border').Border; });
-registerElement('Button', function () { return require('tns-core-modules/ui/button').Button; });
-registerElement(
-  'ContentView',
-  function () { return require('tns-core-modules/ui/content-view').ContentView; }
-);
-registerElement(
-  'DatePicker',
-  function () { return require('tns-core-modules/ui/date-picker').DatePicker; },
-  {
-    model: {
-      prop: 'date',
-      event: 'dateChange'
-    }
-  }
-);
-registerElement(
-  'DockLayout',
-  function () { return require('tns-core-modules/ui/layouts/dock-layout').DockLayout; }
-);
-registerElement(
-  'GridLayout',
-  function () { return require('tns-core-modules/ui/layouts/grid-layout').GridLayout; }
-);
-registerElement(
-  'HtmlView',
-  function () { return require('tns-core-modules/ui/html-view').HtmlView; }
-);
-registerElement('Image', function () { return require('tns-core-modules/ui/image').Image; });
-registerElement('img', function () { return require('tns-core-modules/ui/image').Image; });
-registerElement('Label', function () { return require('tns-core-modules/ui/label').Label; });
-registerElement(
-  'ListPicker',
-  function () { return require('tns-core-modules/ui/list-picker').ListPicker; },
-  {
-    model: {
-      prop: 'selectedIndex',
-      event: 'selectedIndexChange'
-    }
-  }
-);
-registerElement(
-  'NativeActionBar',
-  function () { return require('tns-core-modules/ui/action-bar').ActionBar; }
-);
-registerElement(
-  'NativeActionItem',
-  function () { return require('tns-core-modules/ui/action-bar').ActionItem; }
-);
-registerElement(
-  'NativeListView',
-  function () { return require('tns-core-modules/ui/list-view').ListView; }
-);
-registerElement(
-  'NativeNavigationButton',
-  function () { return require('tns-core-modules/ui/action-bar').NavigationButton; }
-);
-registerElement('Page', function () { return require('tns-core-modules/ui/page').Page; }, {
-  skipAddToDom: true
-});
-registerElement(
-  'Placeholder',
-  function () { return require('tns-core-modules/ui/placeholder').Placeholder; }
-);
-registerElement(
-  'Progress',
-  function () { return require('tns-core-modules/ui/progress').Progress; }
-);
-registerElement(
-  'ProxyViewContainer',
-  function () { return require('tns-core-modules/ui/proxy-view-container').ProxyViewContainer; }
-);
-registerElement(
-  'Repeater',
-  function () { return require('tns-core-modules/ui/repeater').Repeater; }
-);
-registerElement(
-  'ScrollView',
-  function () { return require('tns-core-modules/ui/scroll-view').ScrollView; }
-);
-registerElement(
-  'SearchBar',
-  function () { return require('tns-core-modules/ui/search-bar').SearchBar; },
-  {
-    model: {
-      prop: 'text',
-      event: 'textChange'
-    }
-  }
-);
-registerElement(
-  'SegmentedBar',
-  function () { return require('tns-core-modules/ui/segmented-bar').SegmentedBar; },
-  {
-    model: {
-      prop: 'selectedIndex',
-      event: 'selectedIndexChange'
-    }
-  }
-);
-registerElement(
-  'SegmentedBarItem',
-  function () { return require('tns-core-modules/ui/segmented-bar').SegmentedBarItem; }
-);
-registerElement('Slider', function () { return require('tns-core-modules/ui/slider').Slider; }, {
-  model: {
-    prop: 'value',
-    event: 'valueChange'
-  }
-});
-registerElement(
-  'StackLayout',
-  function () { return require('tns-core-modules/ui/layouts/stack-layout').StackLayout; }
-);
-registerElement(
-  'FlexboxLayout',
-  function () { return require('tns-core-modules/ui/layouts/flexbox-layout').FlexboxLayout; }
-);
-registerElement('Switch', function () { return require('tns-core-modules/ui/switch').Switch; }, {
-  model: {
-    prop: 'checked',
-    event: 'checkedChange'
-  }
-});
-
-registerElement(
-  'NativeTabView',
-  function () { return require('tns-core-modules/ui/tab-view').TabView; },
-  {
-    model: {
-      prop: 'selectedIndex',
-      event: 'selectedIndexChange'
-    }
-  }
-);
-registerElement(
-  'NativeTabViewItem',
-  function () { return require('tns-core-modules/ui/tab-view').TabViewItem; },
-  {
-    skipAddToDom: true
-  }
-);
-
-registerElement(
-  'TextField',
-  function () { return require('tns-core-modules/ui/text-field').TextField; }
-);
-registerElement(
-  'TextView',
-  function () { return require('tns-core-modules/ui/text-view').TextView; }
-);
-registerElement(
-  'TimePicker',
-  function () { return require('tns-core-modules/ui/time-picker').TimePicker; },
-  {
-    model: {
-      prop: 'time',
-      event: 'timeChange'
-    }
-  }
-);
-registerElement(
-  'WebView',
-  function () { return require('tns-core-modules/ui/web-view').WebView; }
-);
-registerElement(
-  'WrapLayout',
-  function () { return require('tns-core-modules/ui/layouts/wrap-layout').WrapLayout; }
-);
-registerElement(
-  'FormattedString',
-  function () { return require('text/formatted-string').FormattedString; }
-);
-registerElement('Span', function () { return require('text/span').Span; });
-
-registerElement(
-  'DetachedContainer',
-  function () { return require('tns-core-modules/ui/proxy-view-container').ProxyViewContainer; },
-  {
-    skipAddToDom: true
-  }
-);
-registerElement(
-  'DetachedText',
-  function () { return require('tns-core-modules/ui/placeholder').Placeholder; },
-  {
-    skipAddToDom: true
-  }
-);
-registerElement(
-  'Comment',
-  function () { return require('tns-core-modules/ui/placeholder').Placeholder; }
-);
-registerElement(
-  'Document',
-  function () { return require('tns-core-modules/ui/proxy-view-container').ProxyViewContainer; },
-  {
-    skipAddToDom: true
-  }
-);
-
 function transformNode(el, options) {
   var warn = options.warn || baseWarn;
   var staticClass = getAndRemoveAttr(el, 'class');
@@ -4859,6 +4650,9 @@ var baseOptions = {
 var ref = createCompiler(baseOptions);
 var compile = ref.compile;
 var compileToFunctions = ref.compileToFunctions;
+
+// register all components
+require('./compiler/element-registry');
 
 exports.parseComponent = parseComponent;
 exports.compile = compile;
