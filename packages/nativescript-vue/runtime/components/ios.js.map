@@ -1,0 +1,1 @@
+{"version":3,"file":"ios.js","sourceRoot":"","sources":["../../../../src/nativescript-vue/runtime/components/ios.ts"],"names":[],"mappings":";;AAAA,MAAM,EAAE,KAAK,EAAE,GAAG,OAAO,CAAC,2BAA2B,CAAC,CAAA;AAEtD,kBAAe;IACb,UAAU,EAAE,IAAI;IAChB,MAAM,CAAC,CAAC,EAAE,EAAE,QAAQ,EAAE;QACpB,IAAI,KAAK,EAAE;YACT,OAAO,QAAQ,CAAA;SAChB;IACH,CAAC;CACF,CAAA"}

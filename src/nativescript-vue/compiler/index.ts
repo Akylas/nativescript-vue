@@ -1,0 +1,28 @@
+import { createCompiler } from 'vue/src/compiler/index'
+import { genStaticKeys } from 'vue/src/shared/util'
+import { registerElement } from '../element-registry'
+import modules from './modules/index'
+import directives from './directives/index'
+
+import {
+  isUnaryTag,
+  mustUseProp,
+  isReservedTag,
+  canBeLeftOpenTag,
+  getTagNamespace
+} from '../util/index'
+
+export const baseOptions = {
+  modules,
+  directives,
+  isUnaryTag,
+  mustUseProp,
+  canBeLeftOpenTag,
+  isReservedTag,
+  getTagNamespace,
+  preserveWhitespace: false,
+  staticKeys: genStaticKeys(modules)
+}
+
+const { compile, compileToFunctions } = createCompiler(baseOptions)
+export { compile, compileToFunctions, registerElement }

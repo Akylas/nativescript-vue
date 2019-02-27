@@ -1,0 +1,1 @@
+{"version":3,"file":"android.js","sourceRoot":"","sources":["../../../../src/nativescript-vue/runtime/components/android.ts"],"names":[],"mappings":";;AAAA,MAAM,EAAE,SAAS,EAAE,GAAG,OAAO,CAAC,2BAA2B,CAAC,CAAA;AAE1D,kBAAe;IACb,UAAU,EAAE,IAAI;IAChB,MAAM,CAAC,CAAC,EAAE,EAAE,QAAQ,EAAE;QACpB,IAAI,SAAS,EAAE;YACb,OAAO,QAAQ,CAAA;SAChB;IACH,CAAC;CACF,CAAA"}

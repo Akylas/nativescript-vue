@@ -1,0 +1,1 @@
+{"version":3,"file":"patch.js","sourceRoot":"","sources":["../../../src/nativescript-vue/runtime/patch.ts"],"names":[],"mappings":";;AAAA,mDAA6D;AAC7D,2DAAyD;AAEzD,2CAA6C;AAC7C,sCAAqC;AAErC,MAAM,OAAO,GAAG,eAAe,CAAC,MAAM,CAAC,eAAW,CAAC,CAAA;AAEtC,QAAA,KAAK,GAAG,2BAAmB,CAAC;IACvC,OAAO;IACP,OAAO;CACR,CAAC,CAAA"}

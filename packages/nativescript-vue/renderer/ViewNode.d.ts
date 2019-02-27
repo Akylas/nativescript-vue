@@ -1,0 +1,30 @@
+export default class ViewNode {
+    nodeType: any;
+    _tagName: any;
+    parentNode: any;
+    childNodes: ViewNode[];
+    prevSibling: any;
+    nextSibling: any;
+    _ownerDocument: any;
+    _nativeView: any;
+    _meta: any;
+    hasAttribute: () => boolean;
+    removeAttribute: () => boolean;
+    constructor();
+    toString(): string;
+    tagName: any;
+    readonly firstChild: ViewNode;
+    readonly lastChild: ViewNode;
+    nativeView: any;
+    readonly meta: any;
+    readonly ownerDocument: any;
+    getAttribute(key: any): any;
+    setAttribute(key: any, value: any): void;
+    setStyle(property: any, value: any): void;
+    setText(text: any): void;
+    addEventListener(event: any, handler: any): void;
+    removeEventListener(event: any): void;
+    insertBefore(childNode: any, referenceNode: any): void;
+    appendChild(childNode: any): void;
+    removeChild(childNode: any): void;
+}
