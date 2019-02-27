@@ -1,6 +1,6 @@
 import { createCompiler } from 'compiler/index'
 import { genStaticKeys } from 'shared/util'
-import { registerElement } from '../element-registry'
+import { registerElement } from './element-registry'
 import modules from './modules/index'
 import directives from './directives/index'
 

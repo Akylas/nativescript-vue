@@ -8,3 +8,4 @@ export { default as TabView } from './tab-view'
 export { default as TabViewItem } from './tab-view-item'
 export { default as transition } from './transition'
 export { default as VTemplate } from './v-template'
+s

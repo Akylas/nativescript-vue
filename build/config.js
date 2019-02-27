@@ -36,22 +36,22 @@ const compilerExternals = Object.keys(
     .dependencies
 )
 const builds = {
-  'akylas-nativescript-vue': {
-    entry: './platform/nativescript/framework.js',
-    dest: './dist/index.js',
-    moduleName: 'Akylas-NativeScript-Vue',
-    banner: banner('Akylas-NativeScript-Vue'),
-    external(id) {
-      return /tns-core-modules/.test(id) || /weex/.test(id)
-    }
-  },
+  // 'akylas-nativescript-vue': {
+  //   entry: './platform/nativescript/framework.js',
+  //   dest: './dist/index.js',
+  //   moduleName: 'Akylas-NativeScript-Vue',
+  //   banner: banner('Akylas-NativeScript-Vue'),
+  //   external(id) {
+  //     return /tns-core-modules/.test(id) || /weex/.test(id)
+  //   }
+  // },
   'akylas-nativescript-vue-template-compiler': {
     entry: './platform/nativescript/compiler.js',
     dest: './packages/akylas-nativescript-vue-template-compiler/index.js',
     moduleName: 'Akylas-NativeScript-Vue-Template-Compiler',
     banner: banner('Akylas-NativeScript-Vue-Template-Compiler'),
     external(id) {
-      return /tns-core-modules/.test(id) || compilerExternals.indexOf(id) !== -1
+      return compilerExternals.indexOf(id) !== -1 || /weex/.test(id)
     }
   }
 }

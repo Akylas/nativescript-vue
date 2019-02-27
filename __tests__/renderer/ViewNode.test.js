@@ -1,5 +1,5 @@
 import ViewNode from 'renderer/ViewNode'
-import * as elReg from 'element-registry'
+import * as elReg from 'element-register'
 
 jest.mock('runtime/components', () => {
   return {}
