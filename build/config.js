@@ -18,11 +18,12 @@ const banner = (name, version) => `
  */
 `
 const intro = `
-if (!this['process']) {
-  global.process = process = {}
+if (!process) {
+  global.process = process = {env:{}}
 }
-process.env = process.env || {}
 `
+
+console.log(!undefined)
 const resolveVue = p => {
   return path.resolve(process.cwd(), 'node_modules', 'vue/src/', p) + '/'
 }
