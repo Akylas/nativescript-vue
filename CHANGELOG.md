@@ -1,3 +1,8 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/Akylas/nativescript-vue/compare/v2.0.13...v2.1.0) (2019-02-28)
+
+
+
 <a name="2.0.13"></a>
 ## [2.0.13](https://github.com/Akylas/nativescript-vue/compare/v2.0.12...v2.0.13) (2019-02-27)
 
