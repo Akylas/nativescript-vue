@@ -1,12 +1,10 @@
 
 /*!
- * Akylas-NativeScript-Vue-Template-Compiler v2.0.13
+ * Akylas-NativeScript-Vue-Template-Compiler v2.1.0
  * (Using Vue v2.6.7)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
  */
-
-'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
@@ -4404,17 +4402,17 @@ function isKnownView(elementName) {
 function transformNode(el, options) {
   var warn = options.warn || baseWarn;
   var staticClass = getAndRemoveAttr(el, 'class');
-  if (process.env.NODE_ENV !== 'production' && staticClass) {
-    var expression = parseText(staticClass, options.delimiters);
-    if (expression) {
-      warn(
-        "class=\"" + staticClass + "\": " +
-          'Interpolation inside attributes has been removed. ' +
-          'Use v-bind or the colon shorthand instead. For example, ' +
-          'instead of <div class="{{ val }}">, use <div :class="val">.'
-      );
-    }
-  }
+  // if (process.env.NODE_ENV !== 'production' && staticClass) {
+  //   const expression = parseText(staticClass, options.delimiters)
+  //   if (expression) {
+  //     warn(
+  //       `class="${staticClass}": ` +
+  //         'Interpolation inside attributes has been removed. ' +
+  //         'Use v-bind or the colon shorthand instead. For example, ' +
+  //         'instead of <div class="{{ val }}">, use <div :class="val">.'
+  //     )
+  //   }
+  // }
   if (staticClass) {
     el.staticClass = JSON.stringify(staticClass);
   }
@@ -4593,8 +4591,8 @@ function transformNode$2(el) {
       mods[mod] = true;
       return mods
     }, {});
-    getAndRemoveAttr(el, attr);
-    addDirective(el, 'view', ("v-view:" + attrName), '', arg, modifiers);
+    getAndRemoveAttr(el, attr, true);
+    addDirective(el, 'view', ("v-view:" + attrName), '', false, arg, modifiers);
   }
 }
 
@@ -4655,7 +4653,7 @@ function getTagNamespace(el) {
 }
 
 var VUE_VERSION = process.env.VUE_VERSION || '2.6.7';
-var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.0.13';
+var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.1.0';
 
 var baseOptions = {
   modules: modules,

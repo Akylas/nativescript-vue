@@ -3,8 +3,8 @@ const frame = require('tns-core-modules/ui/frame')
 const platform = require('tns-core-modules/platform')
 const utils = require('tns-core-modules/utils/utils')
 
-Vue.config.debug = true
-Vue.config.silent = false
+Vue.config.debug = false
+Vue.config.silent = true
 
 // for animated GIF search
 const url = 'https://api.giphy.com/v1/gifs/search'

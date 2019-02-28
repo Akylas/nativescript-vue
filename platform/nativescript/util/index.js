@@ -75,7 +75,7 @@ export function trace(message) {
   }
 
   console.log(
-    `{NSVue (Vue: ${VUE_VERSION} | NSVue: ${NS_VUE_VERSION})} -> ${message}`
+    `[NSVue: ${NS_VUE_VERSION}) (Vue: ${VUE_VERSION} )]: ${message}`
   )
 }
 

@@ -17,6 +17,12 @@ const banner = (name, version) => `
  * Released under the MIT license.
  */
 `
+const intro = `
+if (!this['process']) {
+  global.process = process = {}
+}
+process.env = process.env || {}
+`
 const resolveVue = p => {
   return path.resolve(process.cwd(), 'node_modules', 'vue/src/', p) + '/'
 }
@@ -41,6 +47,7 @@ const builds = {
     dest: './dist/index.js',
     moduleName: 'Akylas-NativeScript-Vue',
     banner: banner('Akylas-NativeScript-Vue'),
+    intro: intro,
     external(id) {
       return /tns-core-modules/.test(id) || /weex/.test(id)
     }
@@ -61,8 +68,11 @@ const genConfig = name => {
   const config = {
     input: opts.entry,
     external: opts.external,
+    treeshake: false,
     output: {
+      strict: false,
       file: opts.dest,
+      intro: opts.intro,
       format: opts.format || 'cjs',
       banner: opts.banner,
       name: opts.moduleName
@@ -77,9 +87,9 @@ const genConfig = name => {
       replace({
         __WEEX__: false,
         __VERSION__: VueVersion,
-        'process.env.NODE_ENV': "process.env.NODE_ENV",
-        'process.env.VBIND_PROP_SHORTHAND': "process.env.VBIND_PROP_SHORTHAND",
-        'process.env.NEW_SLOT_SYNTAX': "process.env.NEW_SLOT_SYNTAX",
+        'process.env.NODE_ENV': 'process.env.NODE_ENV',
+        'process.env.VBIND_PROP_SHORTHAND': 'process.env.VBIND_PROP_SHORTHAND',
+        'process.env.NEW_SLOT_SYNTAX': 'process.env.NEW_SLOT_SYNTAX',
         // 'process.env.NODE_ENV': "'production'",
         // 'process.env.VBIND_PROP_SHORTHAND': "false",
         'let _isServer': 'let _isServer = false',
