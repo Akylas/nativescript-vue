@@ -36,6 +36,14 @@ export default class ViewNode {
   toString() {
     return `${this.constructor.name}(${this.tagName})`
   }
+  toJSON() {
+    return {
+      name: this.constructor.name,
+      tagName: this.tagName,
+      nativeView: this.nativeView,
+      style: this.nativeView && this.nativeView.style
+    }
+  }
 
   set tagName(name) {
     this._tagName = normalizeElementName(name)
