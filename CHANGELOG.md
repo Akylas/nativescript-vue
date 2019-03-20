@@ -1,3 +1,8 @@
+<a name="2.1.6"></a>
+## [2.1.6](https://github.com/Akylas/nativescript-vue/compare/v2.1.4...v2.1.6) (2019-03-20)
+
+
+
 <a name="2.1.4"></a>
 ## [2.1.4](https://github.com/Akylas/nativescript-vue/compare/v2.1.3...v2.1.4) (2019-03-06)
 
@@ -10,6 +15,11 @@
 
 <a name="2.1.2"></a>
 ## [2.1.2](https://github.com/Akylas/nativescript-vue/compare/v2.1.1...v2.1.2) (2019-03-05)
+
+
+### Features
+
+* **list-view:** Add support for default ListView item template ([#438](https://github.com/Akylas/nativescript-vue/issues/438)) ([748d39a](https://github.com/Akylas/nativescript-vue/commit/748d39a))
 
 
 
