@@ -1,10 +1,12 @@
 
 /*!
- * Akylas-NativeScript-Vue-Template-Compiler v2.1.5
- * (Using Vue v2.6.7)
+ * Akylas-NativeScript-Vue-Template-Compiler v2.1.6
+ * (Using Vue v2.6.10)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
  */
+
+'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
@@ -246,7 +248,7 @@ var isNonPhrasingTag = makeMap(
  * using https://www.w3.org/TR/html53/semantics-scripting.html#potentialcustomelementname
  * skipping \u10000-\uEFFFF due to it freezing up PhantomJS
  */
-var unicodeLetters = 'a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD';
+var unicodeRegExp = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/;
 
 /**
  * Define a property.
@@ -267,7 +269,7 @@ function def (obj, key, val, enumerable) {
 // Regular Expressions for parsing tags and attributes
 var attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
 var dynamicArgAttribute = /^\s*((?:v-[\w-]+:|@|:|#)\[[^=]+\][^\s"'<>\/=]*)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
-var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + unicodeLetters + "]*";
+var ncname = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + (unicodeRegExp.source) + "]*";
 var qnameCapture = "((?:" + ncname + "\\:)?" + ncname + ")";
 var startTagOpen = new RegExp(("^<" + qnameCapture));
 var startTagClose = /^\s*(\/?)>/;
@@ -530,7 +532,7 @@ function parseHTML (html, options) {
         ) {
           options.warn(
             ("tag <" + (stack[i].tag) + "> has no matching end tag."),
-            { start: stack[i].start }
+            { start: stack[i].start, end: stack[i].end }
           );
         }
         if (options.end) {
@@ -1284,7 +1286,7 @@ var dynamicArgRE = /^\[.*\]$/;
 var argRE = /:(.*)$/;
 var bindRE = /^:|^\.|^v-bind:/;
 var propBindRE = /^\./;
-var modifierRE = /\.[^.]+/g;
+var modifierRE = /\.[^.\]]+(?=[^\]]*$)/g;
 
 var slotRE = /^v-slot(:|$)|^#/;
 
@@ -1461,7 +1463,7 @@ function parse (
     shouldDecodeNewlinesForHref: options.shouldDecodeNewlinesForHref,
     shouldKeepComment: options.comments,
     outputSourceRange: options.outputSourceRange,
-    start: function start (tag, attrs, unary, start$1) {
+    start: function start (tag, attrs, unary, start$1, end) {
       // check namespace.
       // inherit parent ns if there is one
       var ns = (currentParent && currentParent.ns) || platformGetTagNamespace(tag);
@@ -1480,6 +1482,7 @@ function parse (
       if (process.env.NODE_ENV !== 'production') {
         if (options.outputSourceRange) {
           element.start = start$1;
+          element.end = end;
           element.rawAttrsMap = element.attrsList.reduce(function (cumulated, attr) {
             cumulated[attr.name] = attr;
             return cumulated
@@ -1601,7 +1604,7 @@ function parse (
         text = preserveWhitespace ? ' ' : '';
       }
       if (text) {
-        if (whitespaceOption === 'condense') {
+        if (!inPre && whitespaceOption === 'condense') {
           // condense consecutive whitespaces into single space
           text = text.replace(whitespaceRE, ' ');
         }
@@ -2352,7 +2355,7 @@ function isDirectChildOfTemplateFor (node) {
 
 /*  */
 
-var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*\(/;
+var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*(?:[\w$]+)?\s*\(/;
 var fnInvokeRE = /\([^)]*?\);*$/;
 var simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
 
@@ -3727,7 +3730,7 @@ function genScopedSlots (
   // components with only scoped slots to skip forced updates from parent.
   // but in some cases we have to bail-out of this optimization
   // for example if the slot contains dynamic names, has v-if or v-for on them...
-  var needsForceUpdate = Object.keys(slots).some(function (key) {
+  var needsForceUpdate = el.for || Object.keys(slots).some(function (key) {
     var slot = slots[key];
     return (
       slot.slotTargetDynamic ||
@@ -4592,7 +4595,7 @@ function transformNode$2(el) {
       return mods
     }, {});
     getAndRemoveAttr(el, attr, true);
-    addDirective(el, 'view', ("v-view:" + attrName), '', false, arg, modifiers);
+    addDirective(el, 'view', ("v-view:" + attrName), '', arg, false, modifiers);
   }
 }
 
@@ -4652,8 +4655,8 @@ function getTagNamespace(el) {
   return getViewMeta(el).tagNamespace
 }
 
-var VUE_VERSION = process.env.VUE_VERSION || '2.6.7';
-var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.1.5';
+var VUE_VERSION = process.env.VUE_VERSION || '2.6.10';
+var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.1.6';
 
 var baseOptions = {
   modules: modules,
