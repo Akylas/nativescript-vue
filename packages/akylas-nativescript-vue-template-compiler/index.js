@@ -1,19 +1,13 @@
 
 /*!
- * Akylas-NativeScript-Vue-Template-Compiler v2.1.6
+ * Akylas-NativeScript-Vue-Template-Compiler v2.1.7
  * (Using Vue v2.6.10)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
  */
 
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var deindent = _interopDefault(require('de-indent'));
-var he = _interopDefault(require('he'));
+import deindent from 'de-indent';
+import he from 'he';
 
 /*  */
 
@@ -4656,7 +4650,7 @@ function getTagNamespace(el) {
 }
 
 var VUE_VERSION = process.env.VUE_VERSION || '2.6.10';
-var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.1.6';
+var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.1.7';
 
 var baseOptions = {
   modules: modules,
@@ -4883,7 +4877,4 @@ registerElement(
   }
 );
 
-exports.parseComponent = parseComponent;
-exports.compile = compile;
-exports.compileToFunctions = compileToFunctions;
-exports.registerElement = registerElement;
+export { parseComponent, compile, compileToFunctions, registerElement };

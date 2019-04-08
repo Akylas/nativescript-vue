@@ -73,7 +73,7 @@ const genConfig = name => {
             intro: opts.intro,
             file: opts.dest,
       intro: opts.intro,
-            format: opts.format || 'cjs',
+            format: opts.format || 'esm',
             banner: opts.banner,
             name: opts.moduleName
         },
