@@ -47,6 +47,7 @@ const builds = {
         dest: './dist/index.js',
         moduleName: 'NativeScript-Vue',
         intro: intro,
+        format:'esm',
         banner: banner('NativeScript-Vue'),
         external(id) {
       return /tns-core-modules/.test(id) || /weex/.test(id)
@@ -73,7 +74,7 @@ const genConfig = name => {
             intro: opts.intro,
             file: opts.dest,
       intro: opts.intro,
-            format: opts.format || 'esm',
+            format: opts.format || 'cjs',
             banner: opts.banner,
             name: opts.moduleName
         },
