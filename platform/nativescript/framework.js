@@ -3,9 +3,11 @@ import application from 'tns-core-modules/application'
 import Vue from './runtime/index'
 import ModalPlugin from './plugins/modal-plugin'
 import NavigatorPlugin from './plugins/navigator-plugin'
+import { registerElement } from './element-registry'
 
 import { setVue } from './util'
 
+export {registerElement};
 Vue.config.silent = true
 
 setVue(Vue)
