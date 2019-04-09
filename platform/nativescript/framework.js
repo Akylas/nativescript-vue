@@ -1,5 +1,5 @@
 import { topmost } from 'tns-core-modules/ui/frame'
-import application from 'tns-core-modules/application'
+import * as application from 'tns-core-modules/application'
 import Vue from './runtime/index'
 import ModalPlugin from './plugins/modal-plugin'
 import NavigatorPlugin from './plugins/navigator-plugin'
