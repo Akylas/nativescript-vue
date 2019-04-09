@@ -1,5 +1,5 @@
 import { topmost } from 'tns-core-modules/ui/frame'
-import * as application from 'tns-core-modules/application'
+import { getCssFileName } from 'tns-core-modules/application'
 import Vue from './runtime/index'
 import ModalPlugin from './plugins/modal-plugin'
 import NavigatorPlugin from './plugins/navigator-plugin'
@@ -41,7 +41,7 @@ global.__onLiveSyncCore = () => {
     }
 
     if (frame.currentPage) {
-      frame.currentPage.addCssFile(application.getCssFileName())
+      frame.currentPage.addCssFile(getCssFileName())
     }
   }
 }
