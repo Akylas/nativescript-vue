@@ -1,4 +1,4 @@
-const { isIOS } = require('tns-core-modules/platform')
+import { isIOS } from 'tns-core-modules/platform'
 
 export default {
   functional: true,

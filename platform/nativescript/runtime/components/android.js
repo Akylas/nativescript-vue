@@ -1,4 +1,4 @@
-const { isAndroid } = require('tns-core-modules/platform')
+import { isAndroid } from 'tns-core-modules/platform'
 
 export default {
   functional: true,
