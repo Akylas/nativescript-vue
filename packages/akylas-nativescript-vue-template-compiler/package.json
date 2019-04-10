@@ -1,6 +1,6 @@
 {
   "name": "akylas-nativescript-vue-template-compiler",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "description": "template compiler for nativescript-vue",
   "main": "index.js",
   "repository": {
