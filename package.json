@@ -1,6 +1,6 @@
 {
   "name": "akylas-nativescript-vue",
-  "version": "2.1.13",
+  "version": "2.1.14",
   "description": "NativeScript and Vue integration",
   "main": "dist/index.js",
   "files": [
