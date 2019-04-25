@@ -89,6 +89,8 @@ const genConfig = name => {
                 __WEEX__: false,
                 __VERSION__: VueVersion,
                 'let _isServer': 'let _isServer = false',
+                'process.env.NEW_SLOT_SYNTAX': 'true',
+                'process.env.VBIND_PROP_SHORTHAND': 'false',
                 'process.env.VUE_VERSION': `process.env.VUE_VERSION || '${VueVersion}'`,
                 'process.env.NS_VUE_VERSION': `process.env.NS_VUE_VERSION || '${NSVueVersion}'`
             }),
