@@ -7,7 +7,7 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const NsVueTemplateCompiler = require("nativescript-vue-template-compiler");
+const NsVueTemplateCompiler = require("nativescript-akylas-vue-template-compiler");
 
 const nsWebpack = require("nativescript-dev-webpack");
 const nativescriptTarget = require("nativescript-dev-webpack/nativescript-target");

@@ -27,7 +27,7 @@
     "@babel/preset-env": "7.4.5",
     "babel-loader": "8.0.6",
     "nativescript-dev-webpack": "0.24.0",
-    "nativescript-vue-template-compiler": "file:../packages/nativescript-vue-template-compiler",
+    "nativescript-akylas-vue-template-compiler": "file:../packages/nativescript-akylas-vue-template-compiler",
     "vue-loader": "15.7.0"
   }
 }

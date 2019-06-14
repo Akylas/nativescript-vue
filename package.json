@@ -17,7 +17,7 @@
     "samples": "node build/sample-runner.js",
     "dev": "npm run dev:core & npm run dev:compiler",
     "dev:core": "rollup -c build/config.js -w --o dist/index.js --environment TARGET:nativescript-vue",
-    "dev:compiler": "rollup -c build/config.js -w --environment TARGET:nativescript-vue-template-compiler",
+    "dev:compiler": "rollup -c build/config.js -w --environment TARGET:nativescript-akylas-vue-template-compiler",
     "build": "node build/build.js",
     "prettier": "prettier --no-semi --single-quote --write \"{{platform,__test__}/**/*.js,samples/app/*.js}\"",
     "release": "node build/releaser.js",
