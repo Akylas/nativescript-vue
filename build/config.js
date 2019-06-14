@@ -40,22 +40,22 @@ const aliases = {
 }
 
 const builds = {
-  'nativescript-vue': {
+  'nativescript-akylas-vue': {
     entry: './platform/nativescript/framework.js',
     dest: './dist/index.js',
-    moduleName: 'NativeScript-Vue',
-    banner: banner('NativeScript-Vue'),
+    moduleName: 'NativeScript-Akylas-Vue',
+    banner: banner('NativeScript-Akylas-VVue'),
     intro,
     external(id) {
       return id.startsWith('tns-core-modules') || id.startsWith('weex')
     },
   },
-  'nativescript-vue-template-compiler': {
+  'nativescript-akylas-vue-template-compiler': {
     entry: './platform/nativescript/compiler.js',
-    dest: './packages/nativescript-vue-template-compiler/index.js',
-    moduleName: 'NativeScript-Vue-Template-Compiler',
-    banner: banner('NativeScript-Vue-Template-Compiler'),
-    external: Object.keys(require('../packages/nativescript-vue-template-compiler/package.json').dependencies)
+    dest: './packages/nativescript-akylas-vue-template-compiler/index.js',
+    moduleName: 'NativeScript-Akylas-Vue-Template-Compiler',
+    banner: banner('NativeScript-Akylas-Vue-Template-Compiler'),
+    external: Object.keys(require('../packages/nativescript-akylas-vue-template-compiler/package.json').dependencies)
   }
 }
 

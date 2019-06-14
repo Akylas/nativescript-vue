@@ -1,5 +1,5 @@
 {
-  "name": "nativescript-vue",
+  "name": "nativescript-akylas-vue",
   "version": "2.3.0-rc.0",
   "description": "NativeScript and Vue integration",
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nativescript-vue/nativescript-vue.git"
+    "url": "git+https://github.com/Akylas/nativescript-vue.git"
   },
   "keywords": [
     "vuejs",
@@ -39,9 +39,9 @@
   "author": "Igor Randjelovic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rigor789/nativescript-vue/issues"
+    "url": "https://github.com/Akylas/nativescript-vue/issues"
   },
-  "homepage": "https://github.com/rigor789/nativescript-vue#readme",
+  "homepage": "https://github.com/Akylas/nativescript-vue#readme",
   "nativescript": {
     "platforms": {
       "android": "4.2.0",

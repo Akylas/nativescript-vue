@@ -1,3 +1,3 @@
-# nativescript-vue-template-compiler
+# nativescript-akylas-vue-template-compiler
 
 > This package is auto-generated from `platform/nativescript/compiler`
