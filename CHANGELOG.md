@@ -1,3 +1,13 @@
+<a name="2.3.0-rc.1"></a>
+# [2.3.0-rc.1](https://github.com/Akylas/nativescript-vue/compare/v2.3.0-rc.0...v2.3.0-rc.1) (2019-06-16)
+
+
+### Bug Fixes
+
+* remove log override ([ef3870b](https://github.com/Akylas/nativescript-vue/commit/ef3870b))
+
+
+
 <a name="2.3.0-rc.0"></a>
 # [2.3.0-rc.0](https://github.com/Akylas/nativescript-vue/compare/v2.2.2...v2.3.0-rc.0) (2019-05-31)
 
