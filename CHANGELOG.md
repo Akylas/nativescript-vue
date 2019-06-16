@@ -1,3 +1,8 @@
+<a name="2.3.0-rc.2"></a>
+# [2.3.0-rc.2](https://github.com/Akylas/nativescript-vue/compare/v2.3.0-rc.1...v2.3.0-rc.2) (2019-06-16)
+
+
+
 <a name="2.3.0-rc.1"></a>
 # [2.3.0-rc.1](https://github.com/Akylas/nativescript-vue/compare/v2.3.0-rc.0...v2.3.0-rc.1) (2019-06-16)
 
