@@ -47,7 +47,7 @@ const builds = {
     banner: banner('NativeScript-Akylas-VVue'),
     intro,
     external(id) {
-      return id.startsWith('tns-core-modules') || id.startsWith('weex')
+      return /tns-core-modules/.test(id) || /weex/.test(id)
     },
   },
   'nativescript-akylas-vue-template-compiler': {
