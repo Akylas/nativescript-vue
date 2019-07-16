@@ -21,7 +21,7 @@ export default {
         el.setAttribute('visibility', originalVisibility)
       })
     } else {
-      el.setAttribute('visibility', value ? originalVisibility : 'collapsed')
+      el.setAttribute('visibility', value ? originalVisibility : 'hidden')
     }
   },
 
