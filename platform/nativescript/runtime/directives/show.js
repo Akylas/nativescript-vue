@@ -38,13 +38,13 @@ export default {
         })
       } else {
         leave(vnode, () => {
-          el.setAttribute('visibility', 'collapsed')
+          el.setAttribute('visibility', 'hidden')
         })
       }
     } else {
       el.setAttribute(
         'visibility',
-        value ? el.__vOriginalVisibility : 'collapsed'
+        value ? el.__vOriginalVisibility : 'hidden'
       )
     }
   },
