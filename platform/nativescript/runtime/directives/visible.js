@@ -16,12 +16,12 @@ export default {
         ? ''
         : el.getAttribute('visibility'))
     if (value && transition) {
-      vnode.data.show = true
+      vnode.data.visible = true
       enter(vnode, () => {
         el.setAttribute('visibility', originalVisibility)
       })
     } else {
-      el.setAttribute('visibility', value ? originalVisibility : 'collapsed')
+      el.setAttribute('visibility', value ? originalVisibility : 'hidden')
     }
   },
 
@@ -31,20 +31,20 @@ export default {
     vnode = locateNode(vnode)
     const transition = vnode.data && vnode.data.transition
     if (transition) {
-      vnode.data.show = true
+      vnode.data.visible = true
       if (value) {
         enter(vnode, () => {
           el.setAttribute('visibility', el.__vOriginalVisibility)
         })
       } else {
         leave(vnode, () => {
-          el.setAttribute('visibility', 'collapsed')
+          el.setAttribute('visibility', 'hidden')
         })
       }
     } else {
       el.setAttribute(
         'visibility',
-        value ? el.__vOriginalVisibility : 'collapsed'
+        value ? el.__vOriginalVisibility : 'hidden'
       )
     }
   },
