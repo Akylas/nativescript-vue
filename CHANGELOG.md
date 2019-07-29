@@ -1,3 +1,13 @@
+<a name="2.3.5"></a>
+## [2.3.5](https://github.com/Akylas/nativescript-vue/compare/v2.3.4...v2.3.5) (2019-07-29)
+
+
+### Features
+
+* allow override of registerElement ([2258a2f](https://github.com/Akylas/nativescript-vue/commit/2258a2f))
+
+
+
 <a name="2.3.4"></a>
 ## [2.3.4](https://github.com/Akylas/nativescript-vue/compare/v2.3.3...v2.3.4) (2019-07-16)
 
