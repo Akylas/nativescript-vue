@@ -1,6 +1,6 @@
 
 /*!
- * NativeScript-Akylas-Vue-Template-Compiler v2.3.4
+ * NativeScript-Akylas-Vue-Template-Compiler v2.3.5
  * (Using Vue v2.6.10)
  * (c) 2017-2019 rigor789
  * Released under the MIT license.
@@ -9512,7 +9512,7 @@ function getTagNamespace(el) {
 }
 
 var VUE_VERSION = process.env.VUE_VERSION || '2.6.10';
-var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.3.4';
+var NS_VUE_VERSION = process.env.NS_VUE_VERSION || '2.3.5';
 
 var infoTrace = once(function () {
   console.log(
@@ -10200,9 +10200,10 @@ function registerElement(elementName, resolver, meta) {
 
   meta = Object.assign({}, defaultViewMeta, meta);
 
-  if (elementMap[normalizedName]) {
-    throw new Error(("Element for " + elementName + " already registered."))
-  }
+  // allow override of elements classes (N ones especially)
+  // if (elementMap[normalizedName]) {
+  //   throw new Error(`Element for ${elementName} already registered.`)
+  // }
 
   if (!meta.component) {
     // if no Vue component is passed, wrap the simpler vue component
