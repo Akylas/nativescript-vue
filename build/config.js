@@ -29,14 +29,15 @@ const resolveVue = p => {
   return path.resolve(process.cwd(), 'node_modules', 'vue/src/', p) + '/'
 }
 const aliases = {
-  vue: resolveVue('core/index'),
-  compiler: resolveVue('compiler'),
-  web: resolveVue('platforms/web'),
-  core: resolveVue('core'),
-  shared: resolveVue('shared'),
-  sfc: resolveVue('sfc'),
-  //he: path.resolve(__dirname, 'node_modules', 'he', 'he')
-  he: path.resolve(__dirname, '..', 'platform/nativescript/util/entity-decoder')
+  entries:[
+    {find:'vue'  , replacement: resolveVue('core/index')},
+    {find:'compiler'  , replacement: resolveVue('compiler')},
+    {find:'web'  , replacement: resolveVue('platforms/web')},
+    {find:'core'  , replacement: resolveVue('core')},
+    {find:'shared'  , replacement: resolveVue('shared')},
+    {find:'sfc'  , replacement: resolveVue('sfc')},
+    {find:'he'  , replacement: path.resolve(__dirname, '..', 'platform/nativescript/util/entity-decoder')}
+  ]
 }
 
 const builds = {
