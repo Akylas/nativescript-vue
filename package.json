@@ -141,5 +141,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "version": "2.5.0-alpha.2"
 }
