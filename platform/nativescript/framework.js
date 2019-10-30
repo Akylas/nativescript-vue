@@ -30,7 +30,7 @@ Vue.use(NavigatorPlugin)
 // })(console.log, inspect, Vue)
 
 global.__onLiveSyncCore = () => {
-  const frame = require('tns-core-modules/ui/frame').topmost()
+  const frame = require('@nativescript/core/ui/frame').topmost()
   if (frame) {
     if (frame.currentPage && frame.currentPage.modal) {
       frame.currentPage.modal.closeModal()
@@ -38,7 +38,7 @@ global.__onLiveSyncCore = () => {
 
     if (frame.currentPage) {
       frame.currentPage.addCssFile(
-        require('tns-core-modules/application').getCssFileName()
+        require('@nativescript/core/application').getCssFileName()
       )
     }
   }

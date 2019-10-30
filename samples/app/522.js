@@ -1,5 +1,5 @@
 import Vue from 'nativescript-vue'
-import { ObservableArray } from 'tns-core-modules/data/observable-array'
+import { ObservableArray } from '@nativescript/core/data/observable-array'
 
 Vue.config.debug = true
 Vue.config.silent = false

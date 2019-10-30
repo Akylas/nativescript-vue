@@ -1,8 +1,8 @@
 // import vue.js typings
 // import Vue from 'vue';
 import { Vue, VueConstructor } from 'vue/types/vue'
-import { Page, NavigationEntry } from 'tns-core-modules/ui/frame/frame'
-import { View } from 'tns-core-modules/ui/core/view'
+import { Page, NavigationEntry } from '@nativescript/core/ui/frame/frame'
+import { View } from '@nativescript/core/ui/core/view'
 
 export interface NavigationEntryVue extends NavigationEntry {
     props?: Record<string, any>
