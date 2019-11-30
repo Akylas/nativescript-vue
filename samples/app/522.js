@@ -25,7 +25,7 @@ new Vue({
             </v-template>
           </ListView>
         </GridLayout>
-         
+
       </Page>
     </Frame>`
 }).$start()

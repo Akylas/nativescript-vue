@@ -322,12 +322,16 @@ registerElement(
   'SegmentedBarItem',
   () => require('@nativescript/core/ui/segmented-bar').SegmentedBarItem
 )
-registerElement('Slider', () => require('@nativescript/core/ui/slider').Slider, {
-  model: {
-    prop: 'value',
-    event: 'valueChange'
+registerElement(
+  'Slider',
+  () => require('@nativescript/core/ui/slider').Slider,
+  {
+    model: {
+      prop: 'value',
+      event: 'valueChange'
+    }
   }
-})
+)
 registerElement(
   'StackLayout',
   () => require('@nativescript/core/ui/layouts/stack-layout').StackLayout
@@ -336,12 +340,16 @@ registerElement(
   'FlexboxLayout',
   () => require('@nativescript/core/ui/layouts/flexbox-layout').FlexboxLayout
 )
-registerElement('Switch', () => require('@nativescript/core/ui/switch').Switch, {
-  model: {
-    prop: 'checked',
-    event: 'checkedChange'
+registerElement(
+  'Switch',
+  () => require('@nativescript/core/ui/switch').Switch,
+  {
+    model: {
+      prop: 'checked',
+      event: 'checkedChange'
+    }
   }
-})
+)
 
 registerElement(
   'TextField',
@@ -389,7 +397,8 @@ registerElement('Span', () => require('@nativescript/core/text/span').Span)
 
 registerElement(
   'DetachedContainer',
-  () => require('@nativescript/core/ui/proxy-view-container').ProxyViewContainer,
+  () =>
+    require('@nativescript/core/ui/proxy-view-container').ProxyViewContainer,
   {
     skipAddToDom: true
   }
@@ -408,7 +417,8 @@ registerElement(
 
 registerElement(
   'Document',
-  () => require('@nativescript/core/ui/proxy-view-container').ProxyViewContainer,
+  () =>
+    require('@nativescript/core/ui/proxy-view-container').ProxyViewContainer,
   {
     skipAddToDom: true
   }

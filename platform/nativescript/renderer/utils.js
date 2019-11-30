@@ -10,7 +10,9 @@ export function isLayout(view) {
 }
 
 export function isContentView(view) {
-  return view instanceof require('@nativescript/core/ui/content-view').ContentView
+  return (
+    view instanceof require('@nativescript/core/ui/content-view').ContentView
+  )
 }
 
 export function insertChild(parentNode, childNode, atIndex = -1) {

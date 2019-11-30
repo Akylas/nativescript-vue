@@ -6,6 +6,7 @@ import NavigatorPlugin from './plugins/navigator-plugin'
 import { setVue } from './util'
 
 Vue.config.silent = true
+Vue.config.suppressRenderLogs = false
 
 setVue(Vue)
 
@@ -30,7 +31,7 @@ Vue.use(NavigatorPlugin)
 // })(console.log, inspect, Vue)
 
 global.__onLiveSyncCore = () => {
-  const frame = require('@nativescript/core/ui/frame').topmost()
+  const frame = require('@nativescript/core/ui/frame').Frame.topmost()
   if (frame) {
     if (frame.currentPage && frame.currentPage.modal) {
       frame.currentPage.modal.closeModal()
