@@ -1,4 +1,4 @@
-const alias = require('rollup-plugin-alias')
+const alias = require('@rollup/plugin-alias')
 const commonjs = require('rollup-plugin-commonjs')
 const resolve = require('rollup-plugin-node-resolve')
 const buble = require('rollup-plugin-buble')
@@ -48,7 +48,7 @@ const builds = {
     banner: banner('NativeScript-Akylas-VVue'),
     intro,
     external(id) {
-      return /@nativescript\/core/.test(id) || /weex/.test(id)
+      return /@nativescript/.test(id) || /weex/.test(id)
     },
   },
   'nativescript-akylas-vue-template-compiler': {
