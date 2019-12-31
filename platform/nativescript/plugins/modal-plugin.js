@@ -56,7 +56,6 @@ export default {
 
           resolved = true
           resolve(data)
-          modalPage.closeModal()
 
           // emitted to show up in devtools
           // for debugging purposes
