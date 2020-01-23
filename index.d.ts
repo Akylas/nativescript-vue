@@ -6,6 +6,7 @@ import { View } from '@nativescript/core/ui/core/view'
 
 export interface NavigationEntryVue extends NavigationEntry {
     props?: Record<string, any>
+    resolveOnNavigated?:boolean
 }
 
 export type navigateTo = (
