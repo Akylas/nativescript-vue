@@ -3,6 +3,7 @@
 import { Vue, VueConstructor } from 'vue/types/vue'
 import { Page, NavigationEntry } from '@nativescript/core/ui/frame/frame'
 import { View } from '@nativescript/core/ui/core/view'
+import { ShowModalOptions } from '@nativescript/core/ui/core/view-base'
 
 export interface NavigationEntryVue extends NavigationEntry {
     props?: Record<string, any>
@@ -15,9 +16,7 @@ export type navigateTo = (
     cb?: () => Page,
 ) => Promise<Page>;
 
-export interface ModalOptions {
-    context?: any;
-    fullscreen?: boolean;
+export interface ModalOptions extends ShowModalOptions {
     props?: Record<string, any>;
 }
 
